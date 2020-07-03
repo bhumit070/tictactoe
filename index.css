@@ -1,0 +1,26 @@
+#box{
+  border: 3px solid black;
+  height: 100px;
+  width: 100px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+#container{
+    display:flex;
+    align-items: center;
+}
+
+#turn{
+  color: red;
+}
+
+.tic-box{
+  background-color: #3c6478;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+.tic-box:hover{
+  background-color: aqua;
+}
