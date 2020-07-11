@@ -1,26 +1,55 @@
-#box{
-  border: 3px solid black;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2f363f;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+
+  text-align: center;
+  font-size: 80px;
+  margin-top: 30px;
   height: 100px;
   width: 100px;
+  border: 2px solid white;
   margin: 3px;
   cursor: pointer;
 }
 
-#container{
-    display:flex;
-    align-items: center;
+.box:hover {
+  background: aqua;
+}
+
+.btn {
+  font-size: 22px;
+  padding: 11px;
+  margin: 14px;
+  cursor: pointer;
+  background-color: inherit;
+  color: aqua;    
+  border-radius: 20%;
+}
+
+.buttons{
+  flex-direction: column;
 }
 
 #turn{
-  color: red;
+  color: #FFF222
 }
 
-.tic-box{
-  background-color: #3c6478;
-  font-size: 50px;
-  color: white;
-  text-align: center;
-}
-.tic-box:hover{
-  background-color: aqua;
+.result{
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFF222
 }
