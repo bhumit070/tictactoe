@@ -25,8 +25,6 @@ function scoreX() {
 
 if (localStorage.getItem("playerScore") === null) {
   localStorage.setItem("playerScore", 0);
-} else {
-  console.log("player score was set");
 }
 if (localStorage.getItem("botScore") === null) {
   localStorage.setItem("botScore", 0);
@@ -56,106 +54,108 @@ function disableBoxes() {
   }
 }
 
-function canBotWin() {
+function canBotWin(_value = null) {
   let winIndex = null
 
-  if (x[0].innerText == "" && x[1].innerText == value && x[2].innerText == value) {
+  const currentValue = _value || value
+
+  if (x[0].innerText == "" && x[1].innerText == currentValue && x[2].innerText == currentValue) {
     winIndex = 0;
   }
-  if (x[0].innerText == value && x[1].innerText == "" && x[2].innerText == value) {
+  if (x[0].innerText == currentValue && x[1].innerText == "" && x[2].innerText == currentValue) {
     winIndex = 1;
   }
-  if (x[0].innerText == value && x[1].innerText == value && x[2].innerText == "") {
+  if (x[0].innerText == currentValue && x[1].innerText == currentValue && x[2].innerText == "") {
     winIndex = 2
   }
 
-  if (x[3].innerText == "" && x[4].innerText == value && x[5].innerText == value) {
+  if (x[3].innerText == "" && x[4].innerText == currentValue && x[5].innerText == currentValue) {
     winIndex = 3;
   }
-  if (x[3].innerText == value && x[4].innerText == "" && x[5].innerText == value) {
+  if (x[3].innerText == currentValue && x[4].innerText == "" && x[5].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[3].innerText == "" && x[4].innerText == "" && x[5].innerText == value) {
+  if (x[3].innerText == "" && x[4].innerText == "" && x[5].innerText == currentValue) {
     winIndex = 5;
   }
 
-  if (x[6].innerText == "" && x[7].innerText == value && x[8].innerText == value) {
+  if (x[6].innerText == "" && x[7].innerText == currentValue && x[8].innerText == currentValue) {
     winIndex = 6;
   }
-  if (x[6].innerText == value && x[7].innerText == "" && x[8].innerText == "") {
+  if (x[6].innerText == currentValue && x[7].innerText == "" && x[8].innerText == "") {
     winIndex = 7;
   }
-  if (x[6].innerText == value && x[7].innerText == value && x[8].innerText == "") {
+  if (x[6].innerText == currentValue && x[7].innerText == currentValue && x[8].innerText == "") {
     winIndex = 8;
   }
 
-  if (x[0].innerText == "" && x[4].innerText == value && x[8].innerText == value) {
+  if (x[0].innerText == "" && x[4].innerText == currentValue && x[8].innerText == currentValue) {
     winIndex = 0
   }
-  if (x[0].innerText == value && x[4].innerText == "" && x[8].innerText == value) {
+  if (x[0].innerText == currentValue && x[4].innerText == "" && x[8].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[0].innerText == value && x[4].innerText == value && x[8].innerText == "") {
+  if (x[0].innerText == currentValue && x[4].innerText == currentValue && x[8].innerText == "") {
     winIndex = 8;
   }
 
-  if (x[2].innerText == "" && x[4].innerText == value && x[6].innerText == value) {
+  if (x[2].innerText == "" && x[4].innerText == currentValue && x[6].innerText == currentValue) {
     winIndex = 2;
   }
-  if (x[2].innerText == value && x[4].innerText == "" && x[6].innerText == value) {
+  if (x[2].innerText == currentValue && x[4].innerText == "" && x[6].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[2].innerText == value && x[4].innerText == value && x[6].innerText == "") {
+  if (x[2].innerText == currentValue && x[4].innerText == currentValue && x[6].innerText == "") {
     winIndex = 6;
   }
 
-  if (x[1].innerText == "" && x[4].innerText == value && x[7].innerText == value) {
+  if (x[1].innerText == "" && x[4].innerText == currentValue && x[7].innerText == currentValue) {
     winIndex = 1;
   }
-  if (x[1].innerText == value && x[4].innerText == "" && x[7].innerText == value) {
+  if (x[1].innerText == currentValue && x[4].innerText == "" && x[7].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[1].innerText == value && x[4].innerText == value && x[7].innerText == "") {
+  if (x[1].innerText == currentValue && x[4].innerText == currentValue && x[7].innerText == "") {
     winIndex = 7;
   }
 
-  if (x[0].innerText == "" && x[3].innerText == value && x[6].innerText == value) {
+  if (x[0].innerText == "" && x[3].innerText == currentValue && x[6].innerText == currentValue) {
     winIndex = 0;
   }
-  if (x[0].innerText == value && x[3].innerText == "" && x[6].innerText == value) {
+  if (x[0].innerText == currentValue && x[3].innerText == "" && x[6].innerText == currentValue) {
     winIndex = 3;
   }
-  if (x[0].innerText == value && x[3].innerText == value && x[6].innerText == "") {
+  if (x[0].innerText == currentValue && x[3].innerText == currentValue && x[6].innerText == "") {
     winIndex = 6;
   }
 
-  if (x[2].innerText == "" && x[5].innerText == value && x[8].innerText == value) {
+  if (x[2].innerText == "" && x[5].innerText == currentValue && x[8].innerText == currentValue) {
     winIndex = 2;
   }
-  if (x[2].innerText == value && x[5].innerText == "" && x[8].innerText == value) {
+  if (x[2].innerText == currentValue && x[5].innerText == "" && x[8].innerText == currentValue) {
     winIndex = 5;
   }
-  if (x[2].innerText == value && x[5].innerText == value && x[8].innerText == "") {
+  if (x[2].innerText == currentValue && x[5].innerText == currentValue && x[8].innerText == "") {
     winIndex = 8;
   }
 
-  if (x[0].innerText == "" && x[1].innerText == value && x[2].innerText == value) {
+  if (x[0].innerText == "" && x[1].innerText == currentValue && x[2].innerText == currentValue) {
     winIndex = 0;
   }
-  if (x[0].innerText == value && x[1].innerText == "" && x[2].innerText == value) {
+  if (x[0].innerText == currentValue && x[1].innerText == "" && x[2].innerText == currentValue) {
     winIndex = 1;
   }
-  if (x[0].innerText == "" && x[1].innerText == value && x[2].innerText == "") {
+  if (x[0].innerText == "" && x[1].innerText == currentValue && x[2].innerText == "") {
     winIndex = 2;
   }
 
-  if (x[3].innerText == "" && x[4].innerText == value && x[5].innerText == value) {
+  if (x[3].innerText == "" && x[4].innerText == currentValue && x[5].innerText == currentValue) {
     winIndex = 3;
   }
-  if (x[3].innerText == value && x[4].innerText == "" && x[5].innerText == value) {
+  if (x[3].innerText == currentValue && x[4].innerText == "" && x[5].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[3].innerText == "" && x[4].innerText == value && x[5].innerText == "") {
+  if (x[3].innerText == "" && x[4].innerText == currentValue && x[5].innerText == "") {
     winIndex = 5;
   }
 
@@ -167,7 +167,21 @@ function bot(isWinnerChecked = false) {
     return;
   }
 
-  var number = !isWinnerChecked ? canBotWin() || Math.round(Math.random(0, 8) * 10) : Math.round(Math.random(0, 8) * 10);
+  let number
+
+  if (!isWinnerChecked) {
+    number = canBotWin()
+  }
+  if (number == null && !isWinnerChecked) {
+    number = canBotWin('O')
+  }
+  if (number == null) {
+    number = Math.round(Math.random(0, 8) * 10)
+  }
+
+  if (number == null) {
+    number = Math.round(Math.random(0, 8) * 10)
+  }
 
   if (number == 9) {
     number = number - 1;
@@ -525,5 +539,6 @@ x[8].addEventListener("click", () => {
 });
 
 function exit() {
-  console.log("exit");
+  // show confetti
+  confetti.start();
 }
