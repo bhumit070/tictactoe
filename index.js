@@ -56,25 +56,132 @@ function disableBoxes() {
   }
 }
 
-function bot() {
-  if (clicks < 9) {
-    var number = Math.round(Math.random(0, 8) * 10);
+function canBotWin() {
+  let winIndex = null
 
-    if (number == 9) {
-      number = number - 1;
-    } else if (number == 10) {
-      number = number - 2;
-    } else {
-      number;
-    }
-
-    if (x[number].innerText == "") {
-      x[number].click();
-    } else {
-      bot();
-    }
-  } else {
+  if (x[0].innerText == "" && x[1].innerText == value && x[2].innerText == value) {
+    winIndex = 0;
   }
+  if (x[0].innerText == value && x[1].innerText == "" && x[2].innerText == value) {
+    winIndex = 1;
+  }
+  if (x[0].innerText == value && x[1].innerText == value && x[2].innerText == "") {
+    winIndex = 2
+  }
+
+  if (x[3].innerText == "" && x[4].innerText == value && x[5].innerText == value) {
+    winIndex = 3;
+  }
+  if (x[3].innerText == value && x[4].innerText == "" && x[5].innerText == value) {
+    winIndex = 4;
+  }
+  if (x[3].innerText == "" && x[4].innerText == "" && x[5].innerText == value) {
+    winIndex = 5;
+  }
+
+  if (x[6].innerText == "" && x[7].innerText == value && x[8].innerText == value) {
+    winIndex = 6;
+  }
+  if (x[6].innerText == value && x[7].innerText == "" && x[8].innerText == "") {
+    winIndex = 7;
+  }
+  if (x[6].innerText == value && x[7].innerText == value && x[8].innerText == "") {
+    winIndex = 8;
+  }
+
+  if (x[0].innerText == "" && x[4].innerText == value && x[8].innerText == value) {
+    winIndex = 0
+  }
+  if (x[0].innerText == value && x[4].innerText == "" && x[8].innerText == value) {
+    winIndex = 4;
+  }
+  if (x[0].innerText == value && x[4].innerText == value && x[8].innerText == "") {
+    winIndex = 8;
+  }
+
+  if (x[2].innerText == "" && x[4].innerText == value && x[6].innerText == value) {
+    winIndex = 2;
+  }
+  if (x[2].innerText == value && x[4].innerText == "" && x[6].innerText == value) {
+    winIndex = 4;
+  }
+  if (x[2].innerText == value && x[4].innerText == value && x[6].innerText == "") {
+    winIndex = 6;
+  }
+
+  if (x[1].innerText == "" && x[4].innerText == value && x[7].innerText == value) {
+    winIndex = 1;
+  }
+  if (x[1].innerText == value && x[4].innerText == "" && x[7].innerText == value) {
+    winIndex = 4;
+  }
+  if (x[1].innerText == value && x[4].innerText == value && x[7].innerText == "") {
+    winIndex = 7;
+  }
+
+  if (x[0].innerText == "" && x[3].innerText == value && x[6].innerText == value) {
+    winIndex = 0;
+  }
+  if (x[0].innerText == value && x[3].innerText == "" && x[6].innerText == value) {
+    winIndex = 3;
+  }
+  if (x[0].innerText == value && x[3].innerText == value && x[6].innerText == "") {
+    winIndex = 6;
+  }
+
+  if (x[2].innerText == "" && x[5].innerText == value && x[8].innerText == value) {
+    winIndex = 2;
+  }
+  if (x[2].innerText == value && x[5].innerText == "" && x[8].innerText == value) {
+    winIndex = 5;
+  }
+  if (x[2].innerText == value && x[5].innerText == value && x[8].innerText == "") {
+    winIndex = 8;
+  }
+
+  if (x[0].innerText == "" && x[1].innerText == value && x[2].innerText == value) {
+    winIndex = 0;
+  }
+  if (x[0].innerText == value && x[1].innerText == "" && x[2].innerText == value) {
+    winIndex = 1;
+  }
+  if (x[0].innerText == "" && x[1].innerText == value && x[2].innerText == "") {
+    winIndex = 2;
+  }
+
+  if (x[3].innerText == "" && x[4].innerText == value && x[5].innerText == value) {
+    winIndex = 3;
+  }
+  if (x[3].innerText == value && x[4].innerText == "" && x[5].innerText == value) {
+    winIndex = 4;
+  }
+  if (x[3].innerText == "" && x[4].innerText == value && x[5].innerText == "") {
+    winIndex = 5;
+  }
+
+  return winIndex;
+}
+
+function bot(isWinnerChecked = false) {
+  if (clicks > 9) {
+    return;
+  }
+
+  var number = !isWinnerChecked ? canBotWin() || Math.round(Math.random(0, 8) * 10) : Math.round(Math.random(0, 8) * 10);
+
+  if (number == 9) {
+    number = number - 1;
+  } else if (number == 10) {
+    number = number - 2;
+  } else {
+    number;
+  }
+
+  if (x[number].innerText == "") {
+    x[number].click();
+    return;
+  }
+  return bot(true);
 }
 
 function swap() {
@@ -86,6 +193,11 @@ function swap() {
 }
 
 function swapTurn() {
+
+  if (winner) {
+    return;
+  }
+
   clicks += 1;
   if (clicks == 9) {
     document.getElementById("turn").innerText = "GAME OVER";
@@ -216,6 +328,121 @@ function result() {
   }
 }
 
+//function result() {
+//  if (x[0].innerText == "O" && x[1].innerText == "O" && x[2].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[3].innerText == "O" && x[4].innerText == "O" && x[5].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[6].innerText == "O" && x[7].innerText == "O" && x[8].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[0].innerText == "O" && x[4].innerText == "O" && x[8].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[2].innerText == "O" && x[4].innerText == "O" && x[6].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[1].innerText == "O" && x[4].innerText == "O" && x[7].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[0].innerText == "O" && x[3].innerText == "O" && x[6].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[2].innerText == "O" && x[5].innerText == "O" && x[8].innerText == "O") {
+//    document.getElementById("turn").innerText = "Player 1 Wins";
+//    scoreO();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[0].innerText == "X" && x[1].innerText == "X" && x[2].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[3].innerText == "X" && x[4].innerText == "X" && x[5].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[6].innerText == "X" && x[7].innerText == "X" && x[8].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[0].innerText == "X" && x[4].innerText == "X" && x[8].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[2].innerText == "X" && x[4].innerText == "X" && x[6].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[1].innerText == "X" && x[4].innerText == "X" && x[7].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[0].innerText == "X" && x[3].innerText == "X" && x[6].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//  if (x[2].innerText == "X" && x[5].innerText == "X" && x[8].innerText == "X") {
+//    document.getElementById("turn").innerText = "Bot Wins";
+//    scoreX();
+//    winner = true;
+//    disableBoxes();
+//    exit();
+//  }
+//}
+
 reset.addEventListener("click", () => {
   location.reload();
 });
@@ -296,3 +523,7 @@ x[8].addEventListener("click", () => {
   result();
   swapTurn();
 });
+
+function exit() {
+  console.log("exit");
+}
