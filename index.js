@@ -1,4 +1,4 @@
-let x = document.querySelectorAll(".box");
+let boxes = document.querySelectorAll(".box");
 let quit = document.getElementById("quit");
 let reset = document.getElementById("reset");
 let body = document.getElementById("body");
@@ -50,7 +50,7 @@ function scoreX() {
 
 function disableBoxes() {
   for (i = 0; i <= 8; i++) {
-    x[i].style = "pointer-events:none";
+    boxes[i].style = "pointer-events:none";
   }
 }
 
@@ -59,103 +59,103 @@ function canBotWin(_value = null) {
 
   const currentValue = _value || value
 
-  if (x[0].innerText == "" && x[1].innerText == currentValue && x[2].innerText == currentValue) {
+  if (boxes[0].innerText == "" && boxes[1].innerText == currentValue && boxes[2].innerText == currentValue) {
     winIndex = 0;
   }
-  if (x[0].innerText == currentValue && x[1].innerText == "" && x[2].innerText == currentValue) {
+  if (boxes[0].innerText == currentValue && boxes[1].innerText == "" && boxes[2].innerText == currentValue) {
     winIndex = 1;
   }
-  if (x[0].innerText == currentValue && x[1].innerText == currentValue && x[2].innerText == "") {
+  if (boxes[0].innerText == currentValue && boxes[1].innerText == currentValue && boxes[2].innerText == "") {
     winIndex = 2
   }
 
-  if (x[3].innerText == "" && x[4].innerText == currentValue && x[5].innerText == currentValue) {
+  if (boxes[3].innerText == "" && boxes[4].innerText == currentValue && boxes[5].innerText == currentValue) {
     winIndex = 3;
   }
-  if (x[3].innerText == currentValue && x[4].innerText == "" && x[5].innerText == currentValue) {
+  if (boxes[3].innerText == currentValue && boxes[4].innerText == "" && boxes[5].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[3].innerText == "" && x[4].innerText == "" && x[5].innerText == currentValue) {
+  if (boxes[3].innerText == "" && boxes[4].innerText == "" && boxes[5].innerText == currentValue) {
     winIndex = 5;
   }
 
-  if (x[6].innerText == "" && x[7].innerText == currentValue && x[8].innerText == currentValue) {
+  if (boxes[6].innerText == "" && boxes[7].innerText == currentValue && boxes[8].innerText == currentValue) {
     winIndex = 6;
   }
-  if (x[6].innerText == currentValue && x[7].innerText == "" && x[8].innerText == "") {
+  if (boxes[6].innerText == currentValue && boxes[7].innerText == "" && boxes[8].innerText == "") {
     winIndex = 7;
   }
-  if (x[6].innerText == currentValue && x[7].innerText == currentValue && x[8].innerText == "") {
+  if (boxes[6].innerText == currentValue && boxes[7].innerText == currentValue && boxes[8].innerText == "") {
     winIndex = 8;
   }
 
-  if (x[0].innerText == "" && x[4].innerText == currentValue && x[8].innerText == currentValue) {
+  if (boxes[0].innerText == "" && boxes[4].innerText == currentValue && boxes[8].innerText == currentValue) {
     winIndex = 0
   }
-  if (x[0].innerText == currentValue && x[4].innerText == "" && x[8].innerText == currentValue) {
+  if (boxes[0].innerText == currentValue && boxes[4].innerText == "" && boxes[8].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[0].innerText == currentValue && x[4].innerText == currentValue && x[8].innerText == "") {
+  if (boxes[0].innerText == currentValue && boxes[4].innerText == currentValue && boxes[8].innerText == "") {
     winIndex = 8;
   }
 
-  if (x[2].innerText == "" && x[4].innerText == currentValue && x[6].innerText == currentValue) {
+  if (boxes[2].innerText == "" && boxes[4].innerText == currentValue && boxes[6].innerText == currentValue) {
     winIndex = 2;
   }
-  if (x[2].innerText == currentValue && x[4].innerText == "" && x[6].innerText == currentValue) {
+  if (boxes[2].innerText == currentValue && boxes[4].innerText == "" && boxes[6].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[2].innerText == currentValue && x[4].innerText == currentValue && x[6].innerText == "") {
+  if (boxes[2].innerText == currentValue && boxes[4].innerText == currentValue && boxes[6].innerText == "") {
     winIndex = 6;
   }
 
-  if (x[1].innerText == "" && x[4].innerText == currentValue && x[7].innerText == currentValue) {
+  if (boxes[1].innerText == "" && boxes[4].innerText == currentValue && boxes[7].innerText == currentValue) {
     winIndex = 1;
   }
-  if (x[1].innerText == currentValue && x[4].innerText == "" && x[7].innerText == currentValue) {
+  if (boxes[1].innerText == currentValue && boxes[4].innerText == "" && boxes[7].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[1].innerText == currentValue && x[4].innerText == currentValue && x[7].innerText == "") {
+  if (boxes[1].innerText == currentValue && boxes[4].innerText == currentValue && boxes[7].innerText == "") {
     winIndex = 7;
   }
 
-  if (x[0].innerText == "" && x[3].innerText == currentValue && x[6].innerText == currentValue) {
+  if (boxes[0].innerText == "" && boxes[3].innerText == currentValue && boxes[6].innerText == currentValue) {
     winIndex = 0;
   }
-  if (x[0].innerText == currentValue && x[3].innerText == "" && x[6].innerText == currentValue) {
+  if (boxes[0].innerText == currentValue && boxes[3].innerText == "" && boxes[6].innerText == currentValue) {
     winIndex = 3;
   }
-  if (x[0].innerText == currentValue && x[3].innerText == currentValue && x[6].innerText == "") {
+  if (boxes[0].innerText == currentValue && boxes[3].innerText == currentValue && boxes[6].innerText == "") {
     winIndex = 6;
   }
 
-  if (x[2].innerText == "" && x[5].innerText == currentValue && x[8].innerText == currentValue) {
+  if (boxes[2].innerText == "" && boxes[5].innerText == currentValue && boxes[8].innerText == currentValue) {
     winIndex = 2;
   }
-  if (x[2].innerText == currentValue && x[5].innerText == "" && x[8].innerText == currentValue) {
+  if (boxes[2].innerText == currentValue && boxes[5].innerText == "" && boxes[8].innerText == currentValue) {
     winIndex = 5;
   }
-  if (x[2].innerText == currentValue && x[5].innerText == currentValue && x[8].innerText == "") {
+  if (boxes[2].innerText == currentValue && boxes[5].innerText == currentValue && boxes[8].innerText == "") {
     winIndex = 8;
   }
 
-  if (x[0].innerText == "" && x[1].innerText == currentValue && x[2].innerText == currentValue) {
+  if (boxes[0].innerText == "" && boxes[1].innerText == currentValue && boxes[2].innerText == currentValue) {
     winIndex = 0;
   }
-  if (x[0].innerText == currentValue && x[1].innerText == "" && x[2].innerText == currentValue) {
+  if (boxes[0].innerText == currentValue && boxes[1].innerText == "" && boxes[2].innerText == currentValue) {
     winIndex = 1;
   }
-  if (x[0].innerText == "" && x[1].innerText == currentValue && x[2].innerText == "") {
+  if (boxes[0].innerText == "" && boxes[1].innerText == currentValue && boxes[2].innerText == "") {
     winIndex = 2;
   }
 
-  if (x[3].innerText == "" && x[4].innerText == currentValue && x[5].innerText == currentValue) {
+  if (boxes[3].innerText == "" && boxes[4].innerText == currentValue && boxes[5].innerText == currentValue) {
     winIndex = 3;
   }
-  if (x[3].innerText == currentValue && x[4].innerText == "" && x[5].innerText == currentValue) {
+  if (boxes[3].innerText == currentValue && boxes[4].innerText == "" && boxes[5].innerText == currentValue) {
     winIndex = 4;
   }
-  if (x[3].innerText == "" && x[4].innerText == currentValue && x[5].innerText == "") {
+  if (boxes[3].innerText == "" && boxes[4].innerText == currentValue && boxes[5].innerText == "") {
     winIndex = 5;
   }
 
@@ -191,8 +191,8 @@ function bot(isWinnerChecked = false) {
     number;
   }
 
-  if (x[number].innerText == "") {
-    x[number].click();
+  if (boxes[number].innerText == "") {
+    boxes[number].click();
     return;
   }
   return bot(true);
@@ -228,112 +228,112 @@ function swapTurn() {
 }
 
 function result() {
-  if (x[0].innerText == "O" && x[1].innerText == "O" && x[2].innerText == "O") {
+  if (boxes[0].innerText == "O" && boxes[1].innerText == "O" && boxes[2].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[3].innerText == "O" && x[4].innerText == "O" && x[5].innerText == "O") {
+  if (boxes[3].innerText == "O" && boxes[4].innerText == "O" && boxes[5].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[6].innerText == "O" && x[7].innerText == "O" && x[8].innerText == "O") {
+  if (boxes[6].innerText == "O" && boxes[7].innerText == "O" && boxes[8].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[0].innerText == "O" && x[4].innerText == "O" && x[8].innerText == "O") {
+  if (boxes[0].innerText == "O" && boxes[4].innerText == "O" && boxes[8].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[2].innerText == "O" && x[4].innerText == "O" && x[6].innerText == "O") {
+  if (boxes[2].innerText == "O" && boxes[4].innerText == "O" && boxes[6].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[1].innerText == "O" && x[4].innerText == "O" && x[7].innerText == "O") {
+  if (boxes[1].innerText == "O" && boxes[4].innerText == "O" && boxes[7].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[0].innerText == "O" && x[3].innerText == "O" && x[6].innerText == "O") {
+  if (boxes[0].innerText == "O" && boxes[3].innerText == "O" && boxes[6].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[2].innerText == "O" && x[5].innerText == "O" && x[8].innerText == "O") {
+  if (boxes[2].innerText == "O" && boxes[5].innerText == "O" && boxes[8].innerText == "O") {
     document.getElementById("turn").innerText = "Player 1 Wins";
     scoreO();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[0].innerText == "X" && x[1].innerText == "X" && x[2].innerText == "X") {
+  if (boxes[0].innerText == "X" && boxes[1].innerText == "X" && boxes[2].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[3].innerText == "X" && x[4].innerText == "X" && x[5].innerText == "X") {
+  if (boxes[3].innerText == "X" && boxes[4].innerText == "X" && boxes[5].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[6].innerText == "X" && x[7].innerText == "X" && x[8].innerText == "X") {
+  if (boxes[6].innerText == "X" && boxes[7].innerText == "X" && boxes[8].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[0].innerText == "X" && x[4].innerText == "X" && x[8].innerText == "X") {
+  if (boxes[0].innerText == "X" && boxes[4].innerText == "X" && boxes[8].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[2].innerText == "X" && x[4].innerText == "X" && x[6].innerText == "X") {
+  if (boxes[2].innerText == "X" && boxes[4].innerText == "X" && boxes[6].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[1].innerText == "X" && x[4].innerText == "X" && x[7].innerText == "X") {
+  if (boxes[1].innerText == "X" && boxes[4].innerText == "X" && boxes[7].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[0].innerText == "X" && x[3].innerText == "X" && x[6].innerText == "X") {
+  if (boxes[0].innerText == "X" && boxes[3].innerText == "X" && boxes[6].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
     disableBoxes();
     exit();
   }
-  if (x[2].innerText == "X" && x[5].innerText == "X" && x[8].innerText == "X") {
+  if (boxes[2].innerText == "X" && boxes[5].innerText == "X" && boxes[8].innerText == "X") {
     document.getElementById("turn").innerText = "Bot Wins";
     scoreX();
     winner = true;
@@ -466,79 +466,16 @@ quit.addEventListener("click", () => {
   window.close();
 });
 
-x[0].addEventListener("click", () => {
-  x[0].innerText = value;
-  x[0].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
+function exit() { }
 
-x[1].addEventListener("click", () => {
-  x[1].innerText = value;
-  x[1].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
+[...boxes].forEach((box) => {
+  box.addEventListener("click", () => {
+    if (box.innerText == "") {
+      box.innerText = value;
+      box.style = "pointer-events:none";
+      swap();
+      result();
+      swapTurn();
+    }
+  });
 });
-
-x[2].addEventListener("click", () => {
-  x[2].innerText = value;
-  x[2].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
-
-x[3].addEventListener("click", () => {
-  x[3].innerText = value;
-  x[3].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
-
-x[4].addEventListener("click", () => {
-  x[4].innerText = value;
-  x[4].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
-
-x[5].addEventListener("click", () => {
-  x[5].innerText = value;
-  x[5].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
-
-x[6].addEventListener("click", () => {
-  x[6].innerText = value;
-  x[6].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
-
-x[7].addEventListener("click", () => {
-  x[7].innerText = value;
-  x[7].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
-
-x[8].addEventListener("click", () => {
-  x[8].innerText = value;
-  x[8].style = "pointer-events:none";
-  swap();
-  result();
-  swapTurn();
-});
-
-function exit() {
-  // show confetti
-  confetti.start();
-}
